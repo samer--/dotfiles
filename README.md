@@ -1,2 +1,2 @@
 # dotfiles
-Dot files
+Dot files. And directories.
