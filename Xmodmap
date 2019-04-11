@@ -1,0 +1,4 @@
+keycode 18 = numbersign grave
+clear mod2
+clear mod4
+add mod4 = Meta_L Meta_R
