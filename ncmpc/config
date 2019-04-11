@@ -1,0 +1,10 @@
+auto-center = yes
+audible-bell = no
+#list-format = "%artist%[ . %album%][ > %title%]|[-#[ %file% #]-]"
+list-format = "[%artist%][[ > %album%][ . %title%]|[-#[ %file% #]-]]"
+status-format = "[%artist%][ > %album%][ . %title%]|[-#[ %file% #]-]"
+enable-mouse = no
+crossfade-time = 1
+seek-time = 5
+enable-colors = no
+set-xterm-title = yes

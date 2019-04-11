@@ -1,0 +1,10 @@
+# Write your default config options here!
+cache=8192
+volume=50
+# For output to auxillary monitor
+# vo=corevideo:device_id=1
+
+# Subtitle etc
+# font=/System/Library/Fonts/Helvetica.dfont
+
+

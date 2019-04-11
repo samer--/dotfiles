@@ -1,0 +1,29 @@
+Options: --medium=A4
+
+
+#################################################################
+# 2)	Path to the a2ps resource				#
+#################################################################
+# Default path where a2ps dropped its library files.
+LibraryPath: /Users/samer/.a2ps/sheets:/opt/local/share/a2ps/sheets:/opt/local/share/a2ps/ps:/opt/local/share/a2ps/encoding:/opt/local/share/a2ps/afm:/opt/local/share/ogonkify/afm:/opt/local/share/a2ps/ppd:/opt/local/share/a2ps/fonts:/opt/local/share/ogonkify/fonts:/opt/local/share/a2ps
+
+# It may be useful to extend it so that a2ps can see some
+# TeX or X11 resources: it likes AFM files and PF[AB] files.
+#AppendLibraryPath: foo
+
+Options: --header=
+
+# Title of the page is the (short) name of the current file
+# or the first tagged text if there is
+Options: --center-title=#?1|$t1|$n|
+
+# If in landscape, print date on the left hand side
+# If portrait, then print date on recto, and sheet # on verso
+Options: --left-footer=
+
+# Center footer is the list of files on this sheet if landscape
+Options: --footer=
+
+# If in landscape, print date on the right hand side
+# If portrait, then print date on verso, and sheet # on recto
+Options: --right-footer=
