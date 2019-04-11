@@ -1,0 +1,21 @@
+
+!########################################
+!##### Layouts
+!########################################
+
+GV.control.MButton.font:		-*-Helvetica-Medium-R-Normal--*-100-*-*-P-*-ISO8859-1
+GV.?.processButton.label:		\ working
+
+!##### Main Layout
+
+GV*control.layout:			\
+|v{					\
+  sss=0  \
+  pbh=0  \
+  pbs=0  \
+  |h{					\
+     viewFrame<+[2]-100%*+9999-100%>	\
+  }					\
+}  \
+
+
