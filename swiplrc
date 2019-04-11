@@ -1,0 +1,50 @@
+:- if(exists_source(library(rcutils))).
+:- use_module(library(rcutils)).
+:- use_module(library(hostname)).
+:- endif.
+
+/* :- if(exists_source(library(dcg_core))). */
+/* :- use_module(library(dcg_core), [seqmap_with_sep//3]). */
+/* :- use_module(library(dcg_codes), [fmt//2]). */
+
+/* rb_tree(T) --> {rb_visit(T,Pairs)}, "{", rb_pairs(Pairs), "}". */
+/* rb_pairs([]) --> "". */
+/* rb_pairs(Pairs) --> seqmap_with_sep(",",rb_pair,Pairs). */
+/* rb_pair(K-V) --> fmt('~p',[K]), " ↦ ", fmt('~p',[V]). */
+
+/* user:portray(t(A,B)) :- */
+/*    rb_tree(t(A,B), Codes, []), */
+/*    format('~s', [Codes]). */
+/* :- endif. */
+
+user:file_search_path(library,'/Users/samer/lib/prolog/plcore').
+user:file_search_path(contrib,library(contrib)).
+user:file_search_path(foreign,library(x86_64)).
+user:file_search_path(probase,'/Users/samer/var/probase').
+user:file_search_path(source,home(src/prolog)).
+user:file_search_path(jd,home(src/jukedeck)).
+user:file_search_path(path,home('lib/prism/bin')).
+
+:- set_prolog_flag(user_flags, warning).
+:- set_prolog_flag(prompt_alternatives_on, determinism),
+	set_prolog_flag(toplevel_print_anon, false),
+	set_prolog_flag(editor, '$EDITOR'),
+	create_prolog_flag(readline, readline, []),
+	create_prolog_flag(browser, htmless-fg, []).
+
+start_doc :- between(8000,8009,Port), 
+	catch(doc_server(Port),error(socket_error(_),_),fail), !.
+
+open(X) :- format(string(S),'open "~w"',[X]), shell(S).
+
+persistent_history :-
+   hostname(Hostname),
+   atom_concat('.swipl_history.',Hostname,HistFile),
+   load_files(library(readline), [if(not_loaded)]),
+   persistent_history(HistFile,[interval(300)]).
+
+pprint(T) :- print_term(T,[right_margin(110)]), nl.
+
+:- retractall(thread_util:xterm_args(['-fg', '#000000'])),
+   retractall(thread_util:xterm_args(['-bg', '#ffffdd'])),
+   retractall(thread_util:xterm_args(['-sb', '-sl', 1000, '-rightbar'])).
