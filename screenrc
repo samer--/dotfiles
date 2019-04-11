@@ -1,0 +1,36 @@
+termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm-color 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm-256color 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+termcapinfo xterm*|xterms|xs|rxvt ti@:te@
+setenv TERM screen-256color
+setenv TMPDIR /tmp
+term screen-256color
+setenv DISPLAY :0
+msgwait 2
+chdir
+shell -/opt/local/bin/bash
+
+hardstatus off # don't use titlebar for messages
+#caption always "%= %-w%L>%{= BW}%n*%t%{-}%52<%+w %L=" #caption with window number and name
+caption always "%{=r}%{+b}%H%07=%+=|%{-} %-w%45L>%{+b}%n %t%{-}%+w%<%{-}"
+#caption always "%= %-w%L>%{= BW}%n*%t%{-}%52<%+w %L="
+# d: dim, u:underline, b:bold, r:reverse, s:standout, B:blinking, !:invert, d:default colour:
+#caption string "%{!} %H | %2n %t | %h "
+hardstatus string "%2n %t %? | %h %?" #put window number:name and hstatus in titlebar
+defscrollback 16000
+
+# Yet another hack:
+# Prepend/append register [/] to the paste if ^a^] is pressed.
+# This lets me have autoindent mode in vi.
+register [ "\033:se paste\015a"
+register ] "\033:se nopaste\015a"
+bind ^] paste [.]
+
+bind = resize =
+bind + resize +2
+bind - resize -2
+bind _ resize max
+
+#screen -t scratch 0  shellin $HOME 11
+#screen -t infody  1  shellin $HOME/src/sapl-2.0/infody 12
+

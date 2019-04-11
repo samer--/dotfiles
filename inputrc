@@ -1,0 +1,56 @@
+set show-all-if-ambiguous on
+set meta-flag on
+set convert-meta off
+set input-meta on
+set output-meta on
+set mark-symlinked-directories on
+set blink-matching-paren on
+
+TAB: complete
+M-Rubout: backward-kill-word 
+
+#"\C-<": character-search-backward
+
+# these are for Mac keyboards
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\e[C": forward-char
+"\e[D": backward-char
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+"\e[5D": backward-word
+"\e[5C": forward-word
+"\e[w":  forward-word
+"\C-\e[3~": kill-word
+##"\e\e[D": backward-word
+##"\e\e[C": forward-word
+
+# konsole + PC keyboard
+##"\e[2~": overwrite-mode 
+##"\e[3~": delete-char
+##"\e[1~": beginning-of-line
+##"\e[4~": end-of-line
+#"\e[6~": history-search-forward
+#"\e[5~": history-search-backward
+#"\C-\e[1~": "c-home"
+#"\C-\e[3~": kill-word
+
+# for xterm
+#"\eOA": history-search-backward
+#"\eOB": history-search-forward
+#"\eOd": backward-word
+#"\eOc": forward-word
+##"\eOH": beginning-of-line
+##"\eOF": end-of-line
+#"\C-\eOD": "back"
+#"\C-\eOC": "for"
+
+"\C-r\C-v": dump-variables
+"\C-r\C-m": dump-macros
+"\C-r\C-f": dump-functions
+"\C-r\C-b": bind
+
+$if ocaml
+	"\C-o": "()\C-b"
+	"\C-n": ";;\n"
+$endif
