@@ -2,9 +2,9 @@ termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 termcapinfo xterm-color 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 termcapinfo xterm-256color 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
 termcapinfo xterm*|xterms|xs|rxvt ti@:te@
+term screen-256color
 setenv TERM screen-256color
 setenv TMPDIR /tmp
-term screen-256color
 setenv DISPLAY :0
 msgwait 2
 chdir
@@ -27,10 +27,9 @@ register ] "\033:se nopaste\015a"
 bind ^] paste [.]
 
 bind = resize =
-bind + resize +2
-bind - resize -2
+bind + resize +3
+bind - resize -3
 bind _ resize max
 
-#screen -t scratch 0  shellin $HOME 11
-#screen -t infody  1  shellin $HOME/src/sapl-2.0/infody 12
-
+# This shows how to start a shellin a particular directory
+#screen -t src 0  shellin $HOME/src 11
